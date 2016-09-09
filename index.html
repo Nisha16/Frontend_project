@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRW6DJFon9gFxa_UE_KgdEITV6zydxKKA8HGuUyvGCSOvadzifB63WrPyI">
+    <title>Tuutkia</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                     <span class="light"><strong>Tuutkia</strong></span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#signup">Signup</a>
+                    </li>
+                    <!-- <li>
+                        <a class="page-scroll" href="#newsroom" ng-model="checked" aria-label="Toggle ngHide">Newsroom</a>
+                    </li> -->
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro" ng-hide="checked">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1>TheLeadsXchange</h1>
+                        <p class="intro-text">An innovative,
+                            sales-crowdsourced approach to converting leads, generating
+                            opportunities and growing revenue.</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Signup Section -->
+    <section id="signup" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Sign Up For Free Trial</h2>
+                    <p>To know more about, please log in to free trial</p>
+                    <a href="http://www.google.com" class="btn btn-default btn-lg">Click Here For Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial section -->
+    <section class="content-section text-center">
+    <div class="container">
+    <div class="row">
+        <!-- The carousel -->
+        <div id="transition-timer-carousel" class="carousel slide transition-timer-carousel" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#transition-timer-carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#transition-timer-carousel" data-slide-to="1"></li>
+				<li data-target="#transition-timer-carousel" data-slide-to="2"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" style=" width:100%; height: 300px !important;" >
+				<div class="item active">
+                    <div class="col-lg-8 col-lg-offset-3">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <p>"Up and coming platform and productivity tool that will be transformative and disruptive in the Building & Construction industry..."</p>
+                                <p class="carousel-caption-text hidden-sm hidden-xs" style="text-color:white;">
+                                    -REX KLEIN, CEO, BARRYHUND ADMINISTRATORS, INC.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="col-lg-11 col-lg-offset-2">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <p>"A unique platform for generating additional income for our members through buying and selling of highly bonafied leads. A tool that will benefit our members in managing and tracking their jobs, leads, contacts, and contracts from their mobile device or laptop."</p>
+                                <p class="carousel-caption-text hidden-sm hidden-xs" style="text-color:white;">
+                                    -DEANNA JOHNSON, EXECUTIVE DIRECTOR, SAN FRANCISCO BUILDERS EXCHANGE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="col-lg-8 col-lg-offset-3">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <p>"An exceptional product that spans benefits to individual Realtors/Brokers and expands to sharing any opportunity with one another."</p>
+                                <p class="carousel-caption-text hidden-sm hidden-xs" style="text-color:white;">
+                                    -KRIS GADDE, CEO, ALLIED INFORMATICS, INC. AND G&R VENTURES</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+			<!-- Controls -->
+			<a class="left carousel-control" href="#transition-timer-carousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#transition-timer-carousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+
+            <!-- Timer "progress bar" -->
+            <hr class="transition-timer-carousel-progress-bar animate" />
+		</div>
+    </div>
+</div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div ng-controller="mainCtrl as main" ng-hide="main.newsMetrics.newsroomActive">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>ABOUT US</h2>
+                    <p style="text-align:justify">Tuutkia is a Silicon Valley-based company focused on bringing value to sales professionals
+                        and sales/marketing organizations. Our team is made up of sales and marketing veterans
+                        who bring a wealth of knowledge from major corporations such as <a href="http://cisco.com/">Cisco</a>, <a href="http://oracle.com/">Oracle</a>, and
+                        <a href="http://disney.com/">Disney</a>;
+                        small-medium-sized enterprises; and start-ups.
+                        As business owners, we understand the demands placed on sales professionals every day.
+                        Our applications provide sales people with an effective and easier way to do business.</p>
+
+                    <p style="text-align:justify"> Visit our newsroom to know more about how to grow income and convert leads.</p>
+                        <button name="button" class="btn btn-default btn-lg" ng-click="main.activateNewsroom()">Newsroom</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-controller="newsCtrl as news" ng-show="news.newsMetrics.newsroomActive">
+            <h2>White Paper {{ 2 + 4}}</h2>
+            <div class="pull-left">
+                <div class="col-lg-6 col-lg-offset-10">
+                    <a target="_blank" href="https://www.tuutkia.com/Leads_Manager_White_Paper.pdf"><strong>Sales Leads Manager </strong><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                    <p style="font-size:12px;">
+                        Convert leads by managing contacts
+                        and sharing customer insights.
+                    </p>
+                </div>
+            </div>
+            <div class="pull-right">
+                <div class="col-lg-6 col-lg-offset-0">
+                    <a target="_blank" href="https://www.tuutkia.com/LeadsXchange_White_Paper.pdf"><strong>Sales Leads Exchange </strong><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                    <p style="font-size:12px;">
+                        Convert leads by managing contacts
+                        and sharing customer insights.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- <section id="newsroom" class="container content-section text-center">
+    Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
+<div>
+  Show:
+  <div class="check-element animate-show" ng-show="checked">
+    <span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.
+  </div>
+</div>
+<div>
+  Hide:
+  <div class="check-element animate-show" ng-hide="checked">
+    <span class="glyphicon glyphicon-thumbs-down"></span> I hide when your checkbox is checked.
+  </div>
+</div>
+</section> -->
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>We are reachable!</h2>
+                <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                  <h4><strong> Have a question, concern, or issue? Feel free to Contact us!</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="contact-name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="contact-name" placeholder="Full Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="contact-email" placeholder="example@domain.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-reasons" class="col-sm-2 control-label">Reason</label>
+                        <div class="col-sm-10">
+                            <select class="form-control">
+                                  <option value="product feedabck">Product Feedback</option>
+                                  <option value="create lead">Create Lead</option>
+                                  <option value="create contact">Create Contact</option>
+                                  <option value="import contacts/leads">Import Contacts/Leads</option>
+                                  <option value="my leads">My Leads</option>
+                                  <option value="my publishes leads">My Published Leads</option>
+                                  <option value="opel">Published Leads</option>
+                                  <option value="published leads">Messages</option>
+                                  <option value="followups">Follow Ups</option>
+                                  <option value="account profile">Account Profile</option>
+                                  <option value="dash board">Dash Board</option>
+                                  <option value="billing">Billing</option>
+                                  <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message" class="col-sm-2 control-label">Message</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </form>
+
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="http://www.google.com" class="btn btn-default btn-lg"><i class="fa fa-envelope" aria-hidden="true"></i> <span class="network-name">Send</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <!-- <div id="map"></div> -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Tuutkia 2015</p>
+        </div>
+    </footer>
+
+    <!-- Angular js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
+
+    <!-- Angular scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <script src="js/controllers/news.js"></script>
+    <script src="js/factories/newsroomMetrics.js"></script>
+
+</body>
+
+</html>
