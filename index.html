@@ -172,10 +172,10 @@
 
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
-        <div ng-controller="mainCtrl as main" ng-hide="main.newsMetrics.newsroomActive">
+        <div ng-controller="mainCtrl as main">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>ABOUT US</h2>
+                    <h2>ABOUT US </h2>
                     <p style="text-align:justify">Tuutkia is a Silicon Valley-based company focused on bringing value to sales professionals
                         and sales/marketing organizations. Our team is made up of sales and marketing veterans
                         who bring a wealth of knowledge from major corporations such as <a href="http://cisco.com/">Cisco</a>, <a href="http://oracle.com/">Oracle</a>, and
@@ -183,52 +183,34 @@
                         small-medium-sized enterprises; and start-ups.
                         As business owners, we understand the demands placed on sales professionals every day.
                         Our applications provide sales people with an effective and easier way to do business.</p>
-
-                    <p style="text-align:justify"> Visit our newsroom to know more about how to grow income and convert leads.</p>
-                        <button name="button" class="btn btn-default btn-lg" ng-click="main.activateNewsroom()">Newsroom</button>
                 </div>
             </div>
         </div>
+        <div class="row">
+        <div class="col-lg-8 col-lg-offset-2" ng-controller="newsCtrl as news">
+            <p style="text-align:justify"> Visit our newsroom to know more about how to grow income and convert leads.</p>
+                <button name="button" class="btn btn-default btn-lg" ng-click="news.activateNewsroom()">Newsroom</button>
 
-        <div class="row" ng-controller="newsCtrl as news" ng-show="news.newsMetrics.newsroomActive">
-            <h2>White Paper {{ 2 + 4}}</h2>
-            <div class="pull-left">
-                <div class="col-lg-6 col-lg-offset-10">
-                    <a target="_blank" href="https://www.tuutkia.com/Leads_Manager_White_Paper.pdf"><strong>Sales Leads Manager </strong><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
-                    <p style="font-size:12px;">
-                        Convert leads by managing contacts
-                        and sharing customer insights.
-                    </p>
-                </div>
-            </div>
-            <div class="pull-right">
-                <div class="col-lg-6 col-lg-offset-0">
-                    <a target="_blank" href="https://www.tuutkia.com/LeadsXchange_White_Paper.pdf"><strong>Sales Leads Exchange </strong><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
-                    <p style="font-size:12px;">
-                        Convert leads by managing contacts
-                        and sharing customer insights.
-                    </p>
+                <br>
+                <br>
+                <br>
+            <div class="row" ng-show="news.newsroomActive">
+                <div class="pull-left">
+                    <div ng-repeat="whitepaper in news.data">
+                        <div class="col-lg-20 col-lg-offset-2">
+                            <a target="_blank" href="{{whitepaper.link}}"><strong>{{ whitepaper.title }} </strong><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                            <p style="font-size:18px;">
+                                {{ whitepaper.details }}
+                            </p>
+                            <hr>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-
-
+    </div>
     </section>
-    <!-- <section id="newsroom" class="container content-section text-center">
-    Click me: <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/>
-<div>
-  Show:
-  <div class="check-element animate-show" ng-show="checked">
-    <span class="glyphicon glyphicon-thumbs-up"></span> I show up when your checkbox is checked.
-  </div>
-</div>
-<div>
-  Hide:
-  <div class="check-element animate-show" ng-hide="checked">
-    <span class="glyphicon glyphicon-thumbs-down"></span> I hide when your checkbox is checked.
-  </div>
-</div>
-</section> -->
     <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
         <div class="row">

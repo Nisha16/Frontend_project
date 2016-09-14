@@ -4,13 +4,20 @@
         .module("mainApp")
         .controller("newsCtrl", NewsController);
 
-        NewsController.$inject = ['newsMetrics'];
+        // NewsController.$inject = ['newsMetrics'];
 
 
-        function NewsController(newsMetrics){
+        function NewsController(){
           var vm = this;
+          vm.newsroomActive = false;
+          vm.activateNewsroom = activateNewsroom;
 
           vm.data = papers;
+
+          function activateNewsroom() {
+            vm.newsroomActive = true;
+          }
+        }
 
   var papers = [
           {
@@ -22,9 +29,8 @@
           {
                   author: "null",
                   title: "Sales Leads Exchange",
-                  detials: "Grow income by generating and sharing opportunities with the sales crowd.",
+                  details: "Grow income by generating and sharing opportunities with the sales crowd.",
                   link: "https://www.tuutkia.com/LeadsXchange_White_Paper.pdf"
           }
   ];
-}
 })();

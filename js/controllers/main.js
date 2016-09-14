@@ -4,17 +4,18 @@
         .module("mainApp")
         .controller("mainCtrl", mainController);
 
-    mainController.$inject = ['newsMetrics'];
+    // mainController.$inject = ['newsMetrics'];
 
 
-    function mainController(newsMetrics){
+    function mainController(){
       var vm = this;
 
-      vm.activateNewsroom = activateNewsroom;
+    //   vm.activateNewsroom = activateNewsroom;
+      vm.example = " hello";
 
-      function activateNewsroom(){
-        newsMetrics.changeState("news", true);
-      }
+    //   function activateNewsroom(){
+    //     newsMetrics.changeState("news", true);
+    //   }
 
     }
 })();
