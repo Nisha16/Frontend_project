@@ -5,7 +5,7 @@
         .controller("newsCtrl", NewsController);
 
         // NewsController.$inject = ['newsMetrics'];
-
+        
 
         function NewsController(){
           var vm = this;

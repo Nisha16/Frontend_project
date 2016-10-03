@@ -3,18 +3,18 @@
 
       angular
       .module("mainApp")
-      .factory("newsMetrics", NewsMetrics);
+      .factory("dataService", DataService);
 
-      function NewsMetrics() {
+      function DataService() {
             var newsObj = {
-                  newsroomActive: false,
-                  changeState: changeState,
+                  FAQActive: false,
+                  changeState: changeState
             };
             return newsObj;
 
       function changeState(metric, state){
-            if(metric == "news"){
-                  newsObj.newsroomActive = state;
+            if(metric == "FAQ"){
+                  newsObj.FAQActive = state;
             }
             else {
                   return false;

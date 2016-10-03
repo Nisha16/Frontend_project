@@ -18,10 +18,17 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
     <!-- Theme CSS -->
     <link href="css/grayscale.min.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/reset.css">  -->
+	<link rel="stylesheet" href="css/style.css">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,32 +45,33 @@
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                </button> -->
+                <a class="navbar-brand page-scroll" href="#page-top" ng-click="main.deactivateFAQ()">
                      <span class="light"><strong>Tuutkia</strong></span>
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse" ng-controller="mainCtrl as main" style="font-size:14px">
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about" ng-click="main.deactivateFAQ()">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#signup">Signup</a>
+                        <a class="page-scroll" href="#signup" ng-click="main.deactivateFAQ()">Signup</a>
                     </li>
-                    <!-- <li>
-                        <a class="page-scroll" href="#newsroom" ng-model="checked" aria-label="Toggle ngHide">Newsroom</a>
-                    </li> -->
                     <li>
-                        <a class="page-scroll" href="#contact">Contact Us</a>
+                        <a class="page-scroll" href="#FAQ" ng-click="main.activeFAQS()">FAQ</a>
+
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact" ng-click="main.deactivateFAQ()">Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -73,10 +81,12 @@
     </nav>
 
     <!-- Intro Header -->
-    <header class="intro" ng-hide="checked">
+    <div ng-controller="mainCtrl as main" ng-hide="main.dataService.FAQActive">
+    <header class="intro">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
+                    <br>
                     <div class="col-md-8 col-md-offset-2">
                         <h1>TheLeadsXchange</h1>
                         <p class="intro-text">An innovative,
@@ -171,8 +181,8 @@
 </section>
 
     <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div ng-controller="mainCtrl as main">
+    <section id="about" class="container content-section text-center" >
+        <div ng-controller="mainCtrl as main" ng-hide="main.dataService.FAQActive">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>ABOUT US </h2>
@@ -273,13 +283,467 @@
             </div>
         </div>
     </section>
+    </div>
+<!-- <div id="FAQ" ng-controller="footerCtrl as FAQ" ng-show="FAQ.dataService.FAQActive">
+    <br>
+    <br>
+    <br>
+    <br />
+    <br>
+    <br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <form class="form-inline well well-sm clearfix">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" placeholder="Search" class="form-control" ng-model="FAQ.search">
+            </form>
+        </div>
+    </div>
+</div> -->
+<div class="container" id="FAQ" ng-controller="footerCtrl as FAQ" ng-show="FAQ.dataService.FAQActive">
+  <!-- <h2>Collapse</h2> -->
+  <br>
+  <br>
+  <br>
+  <br />
+  <br>
+  <br><br><br><br>
+  <div class="container">
+      <div class="row">
+          <form class="form-inline well well-sm clearfix">
+              <span class="glyphicon glyphicon-search"></span>
+              <input type="text" placeholder="Search" class="form-control" ng-model="FAQ.search">
+          </form>
+      </div>
+  </div>
+
+  <a href="#" style="font-size:18px;"><strong>Sales Leads Manager Questions - Managing Leads and Contacts and sharing them with your peers.</strong></a>
+  <br>
+  <br>
+  <div class="panel-group" id="accordion" ng-repeat="first in FAQ.salesDetails | filter: FAQ.search">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" ng-click="showDetails = ! showDetails" >{{ first.question }} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': showDetails, 'glyphicon-chevron-right': !showDetails}"></i></a>
+          </h4>
+        </div>
+        <div ng-show="showDetails">
+          <div class="panel-body" style="color:grey;font-size:14px">{{ first.answer }}</div>
+        </div>
+      </div>
+  </div>
+
+  <!-- <div uib-accordion-group class="panel-default" is-open="status.open" ng-repeat="first in FAQ.salesDetails">
+      <uib-accordion-heading>
+        {{ first.question }} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+      </uib-accordion-heading>
+      {{ first.answer }}
+</div> -->
+
+
+  <!-- <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">What are the Benefits?</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body" style="color:grey;font-size:14px">Convert leads by managing contacts and sharing customer insights.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">What is a Lead?</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Any business opportunity that is characterized by a name, product or service,
+            associated company or individual, address, opportunity size, close date, and probability of closure.
+            A Lead will always have one or more Contacts associated with it.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">How to add a Lead or Contact?</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Go to the Create Lead or Create Contact link. You can either create a
+            new contact or associate an existing contact with a Lead in the Create Lead page directly.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">How to Share a Contact?</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Go to the My Contacts link, select the contact you want
+            to share with others on the platform and then the Share button.</div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">How to Search for Contacts?</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Go to Search for Contacts link and search by Name, Title, Company, City, or State.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">How to Request to Share a Contact?</a>
+        </h4>
+      </div>
+      <div id="collapse6" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">A premium service that allows you to send a
+            request to others who know the contact that you might be interested in connecting with.
+            Available at Create Contact, My Contacts, or Search for Contacts links.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">How to find other Sales people who have done business with a Contact?</a>
+        </h4>
+      </div>
+      <div id="collapse7" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">When you are creating a Contact, viewing a
+            contact in My Contacts, or searching for a Contact in Search for Contacts, you will be
+            able to see others who have transacted business with that Contact. An opportunity for you ask to
+            share that relationship.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">What are Follow-ups?</a>
+        </h4>
+      </div>
+      <div id="collapse8" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">A feature that allows you to schedule
+            calendar events and follow-ups with Contacts using your Google Calendar. Available at My Contacts
+            and My Leads links.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">What are Contact Insights?</a>
+        </h4>
+      </div>
+      <div id="collapse9" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">A premium service that allows you to
+            view Contact Insights. An invaluable resource that gathers what your peers are sharing about a
+            contact, not predictive but an actual perspective from existing relationships. Available at My
+            Contacts link.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">What is Message Collaboration?</a>
+        </h4>
+      </div>
+      <div id="collapse10" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">A premium service that enables you to connect
+            with other members and sales people on the platform. Collaborate and exchange Contact or Lead
+            information with one another. Available at Messages link.</div>
+      </div>
+    </div>
+
+    <br><br><br><br>
+    <a href="#" style="font-size:18px;"><strong>Sales Leads Exchange Questions - Buying/Selling Leads </strong></a>
+    <br>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">What are the Benefits?</a>
+        </h4>
+      </div>
+      <div id="collapse11" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">A sales-crowdsourced platform that will help you to convert leads, generate opportunities and grow revenue.</div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">How to buy and sell?</a>
+        </h4>
+      </div>
+      <div id="collapse12" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px"><ul>
+            <li><strong>To sell: </strong>Once logged in go to "Create Lead". Fill out and publish it, is as easy as that. Remember to check the Status of your Published Lead at "My Published Leads". </li>
+            <li><strong>To buy: </strong>Log in and click on "Browse Leads for Sale". Select the right Lead(s) that you want to buy, you have the choice to accept or counter offer. You pay securely selecting one of the Stripe payment options. In the "Messages" link you will be alerted with the Seller's status/response to your offer.</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse13">What are the Seller's Obligations?</a>
+        </h4>
+      </div>
+      <div id="collapse13" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">When a Seller accepts an offer, the Seller
+            shall meet all obligations related to either introducing the Buyer to the Contact for
+            the Lead and/or by providing Customer Verification, if Seller agreed to do so. Seller agrees that any
+            Leads/Contacts that they offer for sale are legitimate and real. </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse14">What is Publishing?</a>
+        </h4>
+      </div>
+      <div id="collapse14" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">When the Seller wants to Sell their Lead or
+            Leads, there are several options of "Publishing" the Leads(s). The Lead(s) 1) are automatically
+            Published on the TheLeadsXchange platform for others to see, 2) on Seller's discretion they can be
+            shared on their Social Media sites, 3) on Seller's discretion they can be shared directly with
+            Buyers using their email addresses.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse15">When is the Transaction Considered Final?</a>
+        </h4>
+      </div>
+      <div id="collapse15" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Once Seller and Buyer fulfill their
+            obligations the transaction is considered final and complete. The payment will only be
+            released to the Seller when the Seller's obligations are completed and within one week of
+             acceptance of the offer.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse16">How do I view the results of my offer?</a>
+        </h4>
+      </div>
+      <div id="collapse16" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">View the status of your offers at "Browse Leads for Sale" link. You will also be alerted through system generated "Notifications" using this link.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse17">Can I cancel after making the offer?</a>
+        </h4>
+      </div>
+      <div id="collapse17" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Once Buyer and Seller obligations have been fulfilled, you cannot cancel the offer. But you can cancel anytime prior to this.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse18">How do I view the results of my bid?</a>
+        </h4>
+      </div>
+      <div id="collapse18" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">In the message link you will be able to communicate with the Buyer or Seller whether your bid was accepted or not.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse19">Can I cancel after making the bid?</a>
+        </h4>
+      </div>
+      <div id="collapse19" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Once an agreement has been reached you cannot cancel.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse20">How do I add contacts?</a>
+        </h4>
+      </div>
+      <div id="collapse20" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Go to the "Create Contact" link. You can further associate any contact or contacts with a Lead by going to "My Leads" link, selecting a Lead, and Editing it.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse21">How do I change my contact info?</a>
+        </h4>
+      </div>
+      <div id="collapse21" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Go to the "My Contacts" link and select the Contact you want to edit. And make the necessary changes and save.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse22">How do I know the seller/ buyer is credible?</a>
+        </h4>
+      </div>
+      <div id="collapse22" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">The Seller/Buyer may exchange professional References to verify credibility. Also, each member of the platform may submit licenses, certificates, business background information which may be verified.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse23">What are Private and Shareable Notes?</a>
+        </h4>
+      </div>
+      <div id="collapse23" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">You can mark your Notes as Private or Shareable when you are creating them for a Lead, Contact, or Company. Marked Shareable, the Note is visible to all members of TheLeadsXchange, otherwise it is Private to the User.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse24">Do leads get deleted? </a>
+        </h4>
+      </div>
+      <div id="collapse24" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">No! Leads may be viewed by their Status: New, In-Process, Disqualified, Closed, Published, On-hold. All viewable from "My Leads" link.</div>
+      </div>
+    </div>
+
+    <br><br><br><br>
+    <a href="#" style="font-size:18px;"><strong>Payment Questions </strong></a>
+    <br>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse25">How do I pay/get paid?</a>
+        </h4>
+      </div>
+      <div id="collapse25" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Thru Stripe's secure site. Once Seller's obligation is fulfilled (contact info, customer introduction, etc.) the Seller receives payment.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse26">What is the Offer Price?</a>
+        </h4>
+      </div>
+      <div id="collapse26" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">This is the initial Seller's price for buying their Lead. The Buyer is free to make a counter offer against this price.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse27">HHow long does payment take? </a>
+        </h4>
+      </div>
+      <div id="collapse27" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">In most cases once the seller has fulfilled their side of the agreement payment is released. Payment dates can vary depending on agreement.</div>
+      </div>
+    </div>
+
+    <br><br><br><br>
+    <a href="#" style="font-size:18px;"><strong>Account Profile Questions  </strong></a>
+    <br>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse28">Verification of Account profile?</a>
+        </h4>
+      </div>
+      <div id="collapse28" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">As necessary, Account Profile is used to search State Licensing Board for verification.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse29">How do I change my profile?</a>
+        </h4>
+      </div>
+      <div id="collapse29" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Go to the "Account Profile" link and make changes and save.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse30">How do I change my password?</a>
+        </h4>
+      </div>
+      <div id="collapse30" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">Go to "Account Profile" link and select "Change Password" and enter New password/Save.</div>
+      </div>
+    </div>
+
+    <br><br><br><br>
+    <a href="#" style="font-size:18px;"><strong>Policies</strong></a>
+    <br>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse31">Our Secure platform & Privacy Policy</a>
+        </h4>
+      </div>
+      <div id="collapse31" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">We protect your information using technical and
+            administrative security measures to reduce the risks of loss, misuse, unauthorized access, disclosure
+            and alteration. Some of the safeguards we use are firewalls and data encryption, physical access controls
+            to our data centers, and information access authorization controls. Please view our Privacy Policy.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse32">Confidentiality Policy:</a>
+        </h4>
+      </div>
+      <div id="collapse32" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">We will always keep your information private
+            and confidential unless and when you direct us to share that information among others that you
+            designate during the Buying or Selling process.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse33">Buyer, Seller, and TheLeadsXchange:</a>
+        </h4>
+      </div>
+      <div id="collapse33" class="panel-collapse collapse">
+        <div class="panel-body" style="color:grey;font-size:14px">The Buyer & Seller assume all liability for
+            transactions on TheLeadsXchange platform. TheLeadsXchange is a Sales Leads Exchange that only
+            enables introductory services. It is solely incumbent on the Buyer and Seller to verify, clarify,
+            and communicate intent of purchase or sharing of any information. TheLeadsXchange doesn't assume
+            any liability because of use, without exceptions.</div>
+      </div>
+    </div>
+</div>-->
+</div>
+
 
     <!-- Map Section -->
     <!-- <div id="map"></div> -->
-
+    <hr />
     <!-- Footer -->
     <footer>
-        <div class="container text-center">
+        <div class="pull-left">
             <p>Copyright &copy; Tuutkia 2015</p>
         </div>
     </footer>
@@ -301,12 +765,15 @@
 
     <!-- Theme JavaScript -->
     <script src="js/grayscale.min.js"></script>
+    <script src="js/faq.js"></script>
+    <!-- <script src="js/jquery-2.1.1.js"></script> -->
 
     <!-- Angular scripts -->
     <script src="js/app.js"></script>
     <script src="js/controllers/main.js"></script>
     <script src="js/controllers/news.js"></script>
-    <script src="js/factories/newsroomMetrics.js"></script>
+    <script src="js/controllers/footerC.js"></script>
+    <script src="js/factories/dataService.js"></script>
 
 </body>
 
