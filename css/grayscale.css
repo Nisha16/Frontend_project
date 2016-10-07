@@ -7,8 +7,8 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: white;
-  background-color: white;
+  color: black;
+  background-color: #F5F3EE;
 }
 html {
   width: 100%;
@@ -22,7 +22,7 @@ h5,
 h6 {
   margin: 0 0 35px;
   /*text-transform: uppercase;*/
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-weight: 900;
   letter-spacing: 1px;
 }
@@ -39,7 +39,7 @@ p {
   }
 }
 a {
-  color: #42DCA3;
+  color: #1abc9c;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -57,7 +57,7 @@ a:focus {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: black;
+  background-color: #1abc9c;
 }
 .navbar-custom .navbar-toggle {
   color: white;
@@ -113,7 +113,7 @@ a:focus {
   }
   .navbar-custom.top-nav-collapse {
     padding: 0;
-    background: black;
+    background: #1abc9c;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
@@ -124,7 +124,7 @@ a:focus {
   padding: 100px 0;
   text-align: center;
   color: white;
-  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  background: url(../img/homepage.jpg) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -139,7 +139,7 @@ a:focus {
   font-size: 40px;
 }
 .intro .intro-body .intro-text {
-  font-size: 18px;
+  font-size: 12px;
 }
 @media (min-width: 768px) {
   .intro {
@@ -150,7 +150,7 @@ a:focus {
     font-size: 100px;
   }
   .intro .intro-body .intro-text {
-    font-size: 26px;
+    font-size: 25px;
   }
 }
 .btn-circle {
@@ -220,12 +220,12 @@ a:focus {
 .content-section {
   padding-top: 100px;
 }
-.download-section {
+.signup-section {
   width: 100%;
   padding: 50px 0;
   color: white;
-  background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
-  background-color: black;
+  /*background: url(../img/signup.jpg) no-repeat center center scroll;*/
+  /*background-color: black;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -240,7 +240,7 @@ a:focus {
   .content-section {
     padding-top: 250px;
   }
-  .download-section {
+  .signup-section {
     padding: 100px 0;
   }
   #map {
@@ -257,17 +257,25 @@ a:focus {
   transition: all 0.3s ease-in-out;
   border-radius: 0;
 }
+
+
+
+
+
+
+
+
 .btn-default {
-  border: 1px solid #42DCA3;
-  color: #42DCA3;
+  border: 1px solid #1abc9c;
+  color: #1abc9c;
   background-color: transparent;
 }
 .btn-default:hover,
 .btn-default:focus {
-  border: 1px solid #42DCA3;
+  border: 1px solid #1abc9c;
   outline: none;
   color: black;
-  background-color: #42DCA3;
+  background-color: #1abc9c;
 }
 ul.banner-social-buttons {
   margin-top: 0;
@@ -311,4 +319,28 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
+
+.vision-section {
+  display: table;
+  width: 100%;
+  height: 500px;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/vision.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  /*filter: blur(5px);*/
 }
